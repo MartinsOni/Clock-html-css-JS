@@ -10,19 +10,19 @@ function animation() {
 
     const day = date.getDate()
     const apm = date.getHours() >= 12 ? "PM" : "AM"
-    const hour = date.getHours()  + date.getMinutes() /60
-    const minute = date.getMinutes() + date.getSeconds() /60
-    const second = date.getSeconds() + date.getMilliseconds() /1000
+    const hour = date.getHours() + date.getMinutes() / 60
+    const minute = date.getMinutes() + date.getSeconds() / 60
+    const second = date.getSeconds() + date.getMilliseconds() / 1000
 
-    textElement.textContent = displayDate ? day : apm
+    textElement.textContent = displayDate ? apm : day
     hoursElement.setAttribute("transform", `rotate (${(360 / 12) * hour})`)
     minutesElement.setAttribute("transform", `rotate (${(360 / 60) * minute})`)
     secondsElement.setAttribute("transform", `rotate (${(360 / 60) * second})`)
- 
-    requestAnimationFrame (animation)
+
+    requestAnimationFrame(animation)
 }
 
-requestAnimationFrame (animation)
+requestAnimationFrame(animation)
 
 textElement.addEventListener("click", () => {
     displayDate = !displayDate
